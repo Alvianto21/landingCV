@@ -11,6 +11,8 @@ website for curriculum vitae online using laravel 11 application
 ## Required
 - PHP 8.2
 - MYSQL
+- Laravel breeze
+- barryvdh/laravel-dompdf
 
 ## Contibute
 - Alvianto21
