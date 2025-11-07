@@ -27,8 +27,54 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'username' => fake()->unique()->userName(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'profile_picture' => fake()->imageUrl(200, 200, 'people'),
+            'bio' => fake()->sentence(12),
+            'address' => fake()->address(),
+            'phone_number' => fake()->phoneNumber(),
+            'work_experiences' => json_encode([
+                [
+                    'company' => fake()->company(),
+                    'position' => fake()->jobTitle(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ],
+                [
+                    'company' => fake()->company(),
+                    'position' => fake()->jobTitle(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ]
+            ]),
+            'educations' => json_encode([
+                [
+                    'institution' => fake()->company(),
+                    'degree' => 'Bachelor of ' . fake()->word(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ],
+                [
+                    'institution' => fake()->company(),
+                    'degree' => 'Master of ' . fake()->word(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ]
+            ]),
+            'skills' => implode(', ', fake()->words(5)),
+            'sosial_links' => json_encode([
+                'linkedin' => fake()->url(),
+                'github' => fake()->url(),
+                'x' => fake()->url()
+            ]),
+            'gender' => fake()->randomElement(['male', 'female']),
+            'place_of_birth' => fake()->city(),
+            'date_of_birth' => fake()->date()
         ];
     }
 
