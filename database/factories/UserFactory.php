@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'profile_picture' => fake()->imageUrl(200, 200, 'people'),
-            'bio' => fake()->sentence(12),
+            'bio' => fake()->paragraph(4),
             'address' => fake()->address(),
             'phone_number' => fake()->phoneNumber(),
             'work_experiences' => json_encode([
@@ -56,14 +56,14 @@ class UserFactory extends Factory
                     'degree' => 'Bachelor of ' . fake()->word(),
                     'start_date' => fake()->date(),
                     'end_date' => fake()->date(),
-                    'description' => fake()->paragraph()
+                    'link' => fake()->url()
                 ],
                 [
                     'institution' => fake()->company(),
                     'degree' => 'Master of ' . fake()->word(),
                     'start_date' => fake()->date(),
                     'end_date' => fake()->date(),
-                    'description' => fake()->paragraph()
+                    'link' => fake()->url()
                 ]
             ]),
             'skills' => implode(', ', fake()->words(5)),

@@ -18,13 +18,13 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username')->unique();
             $table->string('profile_picture');
-            $table->string('bio');
+            $table->text('bio');
             $table->string('address');
             $table->string('phone_number');
             $table->json('work_experiences');
             $table->json('educations');
             $table->text('skills');
-            $table->text('sosial_links')->nullable();
+            $table->json('sosial_links')->nullable();
             $table->enum('gender', ['male', 'female']);
             $table->string('place_of_birth');
             $table->date('date_of_birth');

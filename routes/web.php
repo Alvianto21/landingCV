@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::post('/usercv', [HomeController::class, 'usercv'])->name('usercv');
+
+Route::get('/{user:username?}', [HomeController::class, 'landingcv'])->name('landingcv');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
