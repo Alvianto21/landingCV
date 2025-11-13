@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
                     'degree' => 'Bachelor of ' . fake()->word(),
                     'start_date' => fake()->date(),
                     'end_date' => fake()->date(),
-                    'description' => fake()->paragraph()
+                    'link' => fake()->url()
                 ],
             ]),
             'skills' => implode(', ', fake()->words(5)),
