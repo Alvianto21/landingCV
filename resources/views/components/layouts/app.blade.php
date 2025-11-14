@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Landing CV">
     <meta name="author" content="Vonsensius Alvianto">
+    @auth
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+    @endauth
 
     <!-- Tailwind css -->
     @vite('resources/css/app.css', 'resources/js/app.js')
