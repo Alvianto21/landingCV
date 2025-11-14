@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'address' => fake()->address(),
             'phone_number' => fake()->phoneNumber(),
             'work_experiences' => json_encode([
-                [
+                0 => [
                     'company' => fake()->company(),
                     'position' => fake()->jobTitle(),
                     'start_date' => fake()->date(),
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
                 ]
             ]),
             'educations' => json_encode([
-                [
+                0 => [
                     'institution' => fake()->company(),
                     'degree' => 'Bachelor of ' . fake()->word(),
                     'start_date' => fake()->date(),
@@ -49,9 +49,18 @@ class DatabaseSeeder extends Seeder
             ]),
             'skills' => implode(', ', fake()->words(5)),
             'sosial_links' => json_encode([
-                'linkedin' => fake()->url(),
-                'github' => fake()->url(),
-                'x' => fake()->url()
+                0 => [
+                    'platform' => 'linkedin',
+                    'url' => fake()->url()
+                ],
+                1 => [
+                    'platform' => 'github',
+                    'url' => fake()->url()
+                ],
+                2 => [
+                    'platform' => 'x',
+                    'url' => fake()->url()
+                ]
             ])
         ]);
     }
