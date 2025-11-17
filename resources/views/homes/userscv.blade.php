@@ -40,9 +40,11 @@
             @foreach ($educations as $education)
                 <p class="mb-4 font-medium">{{ $education['institution'] }}</p>
                 <p class="mb-4 font-light">{{ Carbon\Carbon::parse($education['start_date'])->format('d-m-y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('d-m-Y') }}</p>
-                <a href="{{ $education['link'] }}" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700 mb-4">
-                    Learn more
-                </a>               
+                @if (!empty($education['link']))
+                    <a href="{{ $education['link'] }}" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700 mb-4">
+                        Learn more
+                    </a>                                  
+                @endif
             @endforeach
         </div>
     </div>
