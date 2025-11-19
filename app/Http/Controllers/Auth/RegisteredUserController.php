@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'username' => ['required', 'string', 'alpha_num', 'lowercase', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'profile_picture' => ['required', 'image', 'mimes:png,jpg,svg', 'max:2048'],
+            'profile_picture' => ['required', 'image', 'mimes:png,jpg,svg,jpeg', 'max:2048'],
             'address' => ['required', 'string', 'max:500'],
             'gender' => ['required', 'string', 'in:male,female'],
             'phone_number' => ['required', 'numeric', 'digits_between:10,13'],
@@ -48,14 +48,14 @@ class RegisteredUserController extends Controller
             'educations' => ['required', 'array', 'min:1'],
             'educations.*.institution' => ['required', 'string', 'max:255'],
             'educations.*.degree' => ['required', 'string', 'max:200'],
-            'educations.*.start_date' => ['required', 'date', 'before:end_date'],
-            'educations.*.end_date' => ['required', 'date', 'after:start_date'],
+            'educations.*.start_date' => ['required', 'date', 'before:educations.*.end_date'],
+            'educations.*.end_date' => ['required', 'date', 'after:educations.*.start_date'],
             'educations.*.link' => ['nullable', 'url'],
             'work_experiences' => ['required', 'array', 'min:1'],
             'work_experiences.*.company' => ['required', 'string', 'max:300'],
             'work_experiences.*.position' => ['required', 'string', 'max:255'],
-            'work_experiences.*.start_date' => ['required', 'date', 'before:end_date'],
-            'work_experiences.*.end_date' => ['nullable', 'date', 'after:start_date'],
+            'work_experiences.*.start_date' => ['required', 'date', 'before:work_experiences.*.end_date'],
+            'work_experiences.*.end_date' => ['nullable', 'date', 'after:work_experiences.*.start_date'],
             'work_experiences.*.description' => ['required', 'string', 'max:300']
         ]);
 

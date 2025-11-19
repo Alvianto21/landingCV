@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('profile_picture');
             $table->text('bio');
-            $table->string('address');
+            $table->text('address');
             $table->string('phone_number');
             $table->json('work_experiences');
             $table->json('educations');
