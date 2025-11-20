@@ -70,15 +70,15 @@ class UserFactory extends Factory
             'sosial_links' => json_encode([
                 0 => [
                     'platform' => 'linkedin',
-                    'url' => fake()->url()
+                    'link' => fake()->url()
                 ],
                 1 => [
                     'platform' => 'github',
-                    'url' => fake()->url()
+                    'link' => fake()->url()
                 ],
                 2 => [
                     'platform' => 'x',
-                    'url' => fake()->url()
+                    'link' => fake()->url()
                 ]
             ]),
             'gender' => fake()->randomElement(['male', 'female']),
