@@ -20,7 +20,7 @@
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Skills: <span class="text-body">{{ $user->skills }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Educations:</p>
 				<div class="grid auto-cols-auto">
-					@foreach ($educations as $education)
+					@foreach (json_decode($user->educations, true) as $education)
 					<div class="text-center mb-4">
 						<p class="mt-6 mb-2 text-xl font-normal tracking-tight text-heading">{{ $education['institution'] }}</span></p>
 						<p class="mb-4 text-body">From {{ Carbon\Carbon::parse($education['start_date'])->format('d-m-Y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('d-m-Y') }}</p>
@@ -32,7 +32,7 @@
 					</div>
 					@endforeach
 					<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Work Experiences:</p>
-					@foreach ($works as $work)
+					@foreach (json_decode($user->work_experiences, true) as $work)
 						<div class="text-center mb-3">
 							<p class="mt-6 mb-2 text-xl font-medium tracking-tight text-heading">{{ $work['position'] }}</p>
 							<p class="mt-4 mb-2  text-xl font-normal tracking-tight text-heading">{{ $work['company'] }}</p>
@@ -42,7 +42,7 @@
 					@endforeach
 				</div>
 				<ul class="flex space-x-4 sm:mt-0 mb-4">
-					@foreach ($links as $link)
+					@foreach (json_decode($user->sosial_links, true) as $link)
 						@if ($link['platform'] == 'x')
 							<li>
 								<a href="{{ $link['link'] }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">

@@ -6,6 +6,10 @@
 			<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Needs online CV?</h1>
 			<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">This website is a collection of user curriculum vitae that can viewed by anyone. you just need to write the user's username in the url to see their CV, for example landingcv.test/katarina or you just write in the search colomn like katarina.</p>
 
+			<div class="my-3 text-capitalize justify-items-center">
+				<x-alerts.search></x-alerts.search>
+			</div>
+
 			<form class="max-w-md mx-auto" method="POST" action="{{ route('usercv') }}">
 				@csrf   
 				<label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

@@ -37,9 +37,6 @@ class HomeController extends Controller
         return view('homes.userscv', [
             'title' => "CV of " . $user->username,
             'user' => $user,
-            'links' => json_decode($user->sosial_links, true),
-            'works' => json_decode($user->work_experiences, true),
-            'educations' => json_decode($user->educations, true),
         ]);
     }
 }
