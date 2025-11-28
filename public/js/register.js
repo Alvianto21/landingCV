@@ -22,12 +22,47 @@ function buttonDisable() {
 	btn_origin.disabled = true;
 	btn_target.style.display = 'block';
 }
+
+
+/**
+ * Change buttons stage from active to disable if items remainders one
+ * @param {string} buttons - Get id of buttons
+ * @param {string} containerId - Get id of parents container
+ * @param {string} className - Get all of 'className' class inside parent container
+ */
+function toggleButtonsState(buttons, containerId, className) {
+	const disabledClass = "text-fg-disabled bg-disabled box-border border border-default-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none";
+
+	const activeClass = "focus:outline-none text-dark dark:text-gray-600 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 text-center mt-3 inline-flex items-center gap-2 dark:focus:ring-yellow-900";
+
+	const targetBtn = document.getElementById(buttons);
+	const targetId = document.getElementById(containerId);
+
+	// Check if className start with '.'
+	if (!className.startsWith('.')) className = '.' + className;
 	
-	// Add addisional social links input
+	const targetClass = targetId.querySelectorAll(className);
+
+	if(targetClass.length === 1) {
+		targetBtn.style.display = 'none';
+		targetBtn.classList.add("cursor-not-allowed");
+		targetBtn.className = disabledClass;
+		targetBtn.disabled = true;
+	} else if (targetBtn.length !== 1) {
+		targetBtn.style.display = 'inline';
+		targetBtn.classList.remove("cursor-not-allowed");
+		targetBtn.className = activeClass;
+		targetBtn.disabled = false;
+	}
+	
+}
+
+// Add addisional social links input
 function socialLinkPlatform() {
 	const container = document.getElementById('socialLinks');
 	const new_div = document.createElement('div');
 	let social_links_index = document.querySelectorAll('.socials').length;
+	new_div.classList.add("socials");
 		
 	// add new input inside div
 	new_div.innerHTML = `
@@ -46,6 +81,9 @@ function socialLinkPlatform() {
 		</div>`;
 		
 		container.appendChild(new_div);
+
+		// Enable remove button
+		toggleButtonsState("socialLinksRemoveBtn", "socialLinks", ".socials");
 	}
 	
 	// Add addisional educations input
@@ -80,6 +118,9 @@ function educationsData() {
 		</div>`;
 	
 	container.appendChild(new_div);
+
+	// Enable remove button
+	toggleButtonsState("educattionsRemoveDataBtn", "educations", ".educations");
 }
 
 // Add new work experiences input
@@ -87,6 +128,7 @@ function worksData() {
 	const container = document.getElementById('works');
 	const new_div = document.createElement('div');
 	let works_data_index = document.querySelectorAll('.works').length;
+	new_div.classList.add("works");
 	
 	// add new input inside div
 	new_div.innerHTML = `
@@ -112,4 +154,35 @@ function worksData() {
 		</div>`;
 
 	container.appendChild(new_div);
+
+	// Enamble remove button
+	toggleButtonsState("workRemoveDataBtn", "works", ".work");
+}
+
+/**
+ * Remove inputs field
+ * @param {string} btn - Buttons Id
+ * @param {string} containerId - Parents container
+ * @param {string} className - Get all of 'className' class inside parent
+ * @returns - If user pressed cancel or className.length <= 1, return nothing
+ */
+function RemoveButtons(btn, containerId, className) {
+	const targetId = document.getElementById(containerId);
+
+	// Check if className start with '.'
+	if (!className.startsWith('.')) className = '.' + className;
+	
+	const target = targetId.querySelectorAll(className);
+
+	if (confirm("Press OK to continue. If you do, the data will be lost!")) {
+		if (target.length > 1) {
+			target[target.length - 1].remove();
+		} else {
+			return;
+		}
+	} else {
+		return;
+	}
+
+	toggleButtonsState(btn, containerId, className);
 }

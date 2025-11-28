@@ -6,7 +6,6 @@
 			<h1 class="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
 				Create an account
 			</h1>
-			<p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ old('educations[1][degree]') }}</p>
 			<div class="overflow-y-scroll">
 				<form class="space-y-4 md:space-y-6" action="{{ route('register') }}" method="post" enctype="multipart/form-data">
 					@csrf
@@ -63,8 +62,9 @@
 								<div class="mt-3">
 									<x-forms.input-form id="social_links_0_link" name="social_links[0][link]" type="link" placehold="http://maryadi.biz.id/" value="social_links.0.link" error="social_links[0][link]" required>Social Links</x-forms.input-form>
 								</div>
-								<x-forms.new-input-form onclick="socialLinkPlatform()" id="socialLinksBtn">Add new social platforms</x-forms.new-input-form>
 							</div>
+							<x-forms.new-input-form onclick="socialLinkPlatform()" id="socialLinksBtn">Add new social platforms</x-forms.new-input-form>
+							<x-forms.remove-new-input-form onclick="RemoveButtons('socialLinksRemoveBtn', 'socialLinks', '.socials')" id="socialLinksRemoveBtn">Remove social links</x-forms.remove-new-input-form>
 						</div>
 						<div>
 							<x-forms.input-form id="bio" name="bio" type="text" placehold="Introduce yoyrself" value="bio" error="bio" required>Biodata</x-forms.input-form>
@@ -86,8 +86,9 @@
 								<div class="mt-3">
 									<x-forms.input-form id="educations_0_institution_website" name="educations[0][link]" type="link" placehold="http://prakasa.tv/et-fugit-qui-explicabo-maiores-qui-aut-corporis-autem.html" value="educations.0.link" error="educations[0][link]">Institution website</x-forms.input-form>
 								</div>
-								<x-forms.new-input-form onclick="educationsData()" id="educationsDataBtn">Add new education data</x-forms.new-input-form>
 							</div>
+							<x-forms.new-input-form onclick="educationsData()" id="educationsDataBtn">Add new education data</x-forms.new-input-form>
+							<x-forms.remove-new-input-form onclick="RemoveButtons('educattionsRemoveDataBtn', 'educations', '.educations')" id="educattionsRemoveDataBtn">Remove educations data</x-forms.remove-new-input-form>
 						</div>
 						<div id="works">
 							<div class="works">
@@ -107,11 +108,12 @@
 									<x-forms.input-form id="work_0_descriptions" name="work_experiences[0][description]" type="text" placehold="computer technician training........" value="work_experiences.0.description" error="work_experiences[0][description]" required>Work description</x-forms.input-form>
 								</div>
 								<x-forms.new-input-form onclick="worksData()" id="worksDataBtn">Add new work experience</x-forms.new-input-form>
+								<x-forms.remove-new-input-form onclick="RemoveButtons('workRemoveDataBtn', 'works', '.works')" id="workRemoveDataBtn">Remove work experience</x-forms.remove-new-input-form>
 							</div>
 						</div>
 					</div>
 					<button type="submit" class="w-full text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" id="submit">Create an account</button>
-					<button disabled type="button" id="loader" style="display:none;" class="w-full cursor-not-allowed text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+					<button disabled type="button" id="loader" style="display:none;" disabled class="w-full cursor-not-allowed text-white bg-blue-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
 						Loading...
 					</button>
                 	<p class="text-sm font-light text-gray-500 dark:text-gray-400">
@@ -124,7 +126,7 @@
 
 	@push('scripts')
 		<!-- Addisional js -->
-		<script src="{{ asset('js/register.js') }}"></script>
+		<script src="{{ asset('js/register.js') }}" defer></script>
 		
 		@if (session()->has('errors'))
 		<!--
