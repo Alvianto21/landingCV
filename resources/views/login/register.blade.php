@@ -57,10 +57,10 @@
 						<div id="socialLinks">
 							<div class="socials">
 								<div>
-									<x-forms.input-select-form id="social_links_0_platform" name="social_links[0][platform]" :options="['github' => 'GitHub', 'linkedin' => 'LinkedIn', 'x' => 'X']" value="social_links.0.platform" error="social_links[0][platform]" required>Social links platform</x-forms.input-select-form>
+									<x-forms.input-select-form id="social_links_0_platform" name="social_links[0][platform]" :options="['github' => 'GitHub', 'linkedin' => 'LinkedIn', 'x' => 'X']" value="social_links.0.platform" error="social_links.0.platform" required>Social links platform</x-forms.input-select-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-form id="social_links_0_link" name="social_links[0][link]" type="link" placehold="http://maryadi.biz.id/" value="social_links.0.link" error="social_links[0][link]" required>Social Links</x-forms.input-form>
+									<x-forms.input-form id="social_links_0_link" name="social_links[0][link]" type="link" placehold="http://maryadi.biz.id/" value="social_links.0.link" error="social_links.0.link" required>Social Links</x-forms.input-form>
 								</div>
 							</div>
 							<x-forms.new-input-form onclick="socialLinkPlatform()" id="socialLinksBtn">Add new social platforms</x-forms.new-input-form>
@@ -72,19 +72,19 @@
 						<div id="educations">
 							<div class="educations">
 								<div>
-									<x-forms.input-form id="educations_0_institution" name="educations[0][institution]" type="text" placehold="SMAN 70 Surabaya" value="educations.0.institution" error="educations[0][institution]" required>Institutions of education</x-forms.input-form>
+									<x-forms.input-form id="educations_0_institution" name="educations[0][institution]" type="text" placehold="SMAN 70 Surabaya" value="educations.0.institution" error="educations.0.institution" required>Institutions of education</x-forms.input-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-list-form id="educations_0_degree" name="educations[0][degree]" :options="['none' => 'None', 'bachelor' => 'Bachelor', 'master' => 'Master', 'profesorr' => 'Professor']" placehold="bachelor" value="educations.0.degree" error="educations[0][degree]" required>Academic title</x-forms.input-list-form>
+									<x-forms.input-list-form id="educations_0_degree" name="educations[0][degree]" :options="['none' => 'None', 'bachelor' => 'Bachelor', 'master' => 'Master', 'profesorr' => 'Professor']" placehold="bachelor" value="educations.0.degree" error="educations.0.degree" required>Academic title</x-forms.input-list-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-form id="educations_0_start" name="educations[0][start_date]" type="month" placehold="" value="educations.0.start_date" error="educations[0][start_date]" required>Educations start</x-forms.input-form>
+									<x-forms.input-form id="educations_0_start" name="educations[0][start_date]" type="month" placehold="" value="educations.0.start_date" error="educations.0.start_date" required>Educations start</x-forms.input-form>
 								</div>
 								<div class="mt-3">							
-									<x-forms.input-form id="educations_0_end" name="educations[0][end_date]" type="month" placehold="" value="educations.0.end_date" error="educations[0][end_date]" required>Educations end</x-forms.input-form>
+									<x-forms.input-form id="educations_0_end" name="educations[0][end_date]" type="month" placehold="" value="educations.0.end_date" error="educations.0.end_date." required>Educations end</x-forms.input-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-form id="educations_0_institution_website" name="educations[0][link]" type="link" placehold="http://prakasa.tv/et-fugit-qui-explicabo-maiores-qui-aut-corporis-autem.html" value="educations.0.link" error="educations[0][link]">Institution website</x-forms.input-form>
+									<x-forms.input-form id="educations_0_institution_website" name="educations[0][link]" type="link" placehold="http://prakasa.tv/et-fugit-qui-explicabo-maiores-qui-aut-corporis-autem.html" value="educations.0.link" error="educations.0.link">Institution website</x-forms.input-form>
 								</div>
 							</div>
 							<x-forms.new-input-form onclick="educationsData()" id="educationsDataBtn">Add new education data</x-forms.new-input-form>
@@ -93,19 +93,19 @@
 						<div id="works">
 							<div class="works">
 								<div>
-									<x-forms.input-form id="works_0_company" name="work_experiences[0][company]" type="text" placehold="company name or workplace" value="work_experiences.0.company" error="work_experiences[0][company]" required>Workplace</x-forms.input-form>
+									<x-forms.input-form id="works_0_company" name="work_experiences[0][company]" type="text" placehold="company name or workplace" value="work_experiences.0.company" error="work_experiences.0.company" required>Workplace</x-forms.input-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-form id="works_0_position" name="work_experiences[0][position]" type="text" placehold="Senior Accountant" value="work_experiences.0.position" error="work_experiences[0][position]" required>Work positions</x-forms.input-form>
+									<x-forms.input-form id="works_0_position" name="work_experiences[0][position]" type="text" placehold="Senior Accountant" value="work_experiences.0.position" error="work_experiences.0.position" required>Work positions</x-forms.input-form>
 								</div>
 								<div class="mt-3">
-									<x-forms.input-form id="work_0_start" name="work_experiences[0][start_date]" type="month" placehold="" value="work_experiences.0.start_date" error="work_experiences[0][start_date]" required>Work start</x-forms.input-form>
+									<x-forms.input-form id="work_0_start" name="work_experiences[0][start_date]" type="month" placehold="" value="work_experiences.0.start_date" error="work_experiences.0.start_date" required>Work start</x-forms.input-form>
 								</div>
 								<div class="mt-3">							
-									<x-forms.input-form id="work_0_end" name="work_experiences[0][end_date]" type="month" placehold="" value="work_experiences.0.end_date" error="work_experiences[0][end_date]">Work end</x-forms.input-form>
+									<x-forms.input-form id="work_0_end" name="work_experiences[0][end_date]" type="month" placehold="" value="work_experiences.0.end_date" error="work_experiences.0.end_date">Work end</x-forms.input-form>
 								</div>
 								<div class="sm:col-span-2 mt-3">
-									<x-forms.input-form id="work_0_descriptions" name="work_experiences[0][description]" type="text" placehold="computer technician training........" value="work_experiences.0.description" error="work_experiences[0][description]" required>Work description</x-forms.input-form>
+									<x-forms.input-form id="work_0_descriptions" name="work_experiences[0][description]" type="text" placehold="computer technician training........" value="work_experiences.0.description" error="work_experiences.0.description" required>Work description</x-forms.input-form>
 								</div>
 								<x-forms.new-input-form onclick="worksData()" id="worksDataBtn">Add new work experience</x-forms.new-input-form>
 								<x-forms.remove-new-input-form onclick="RemoveButtons('workRemoveDataBtn', 'works', '.works')" id="workRemoveDataBtn">Remove work experience</x-forms.remove-new-input-form>

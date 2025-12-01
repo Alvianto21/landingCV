@@ -23,6 +23,7 @@ function buttonDisable() {
 	btn_target.style.display = 'block';
 }
 
+document.querySelector('form').addEventListener('submit', buttonDisable);
 
 /**
  * Change buttons stage from active to disable if items remainders one
