@@ -6,6 +6,11 @@
 				<h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Welcome back</h2>
 				<p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Have a nice day, {{ $user->name }}</p>
 			</div> 
+
+			<div class="my-3">
+				<x-alerts.verify></x-alerts.verify>
+			</div>
+
 			<div class="bg-neutral-primary-soft block max-w-screen-md items-center p-6 border border-default rounded-base shadow-xs">
 				<img class="rounded-base block mx-auto mb-2 text-sm font-medium text-gray-900 dark:text-white" src="{{ asset('storage/'. $user->profile_picture) }}" alt="{{ $user->username }}" width="300">
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Name: <span class="text-body">{{ $user->name }}</span></p>
