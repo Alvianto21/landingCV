@@ -31,6 +31,9 @@
 							value="username" default="{{ $user->username }}" error="username" required
 							autocomplete="username">Username</x-edit-forms.input-form>
 					</div>
+					<div>
+						<x-edit-forms.input-image-form id="profile_picture" name="profile_picture" value="profile_picture" default="{{ $user->profile_picture }}" alter="{{ $user->username }}" error="profile_picture" onchange="imgPreview()">Profile Picture</x-edit-forms.input-image-form>
+					</div>
 				</div>
 				<button type="submit"
 					class="text-white my-4 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

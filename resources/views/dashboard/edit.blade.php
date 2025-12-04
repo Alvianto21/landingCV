@@ -15,6 +15,21 @@
 	<script>
 		let accountInfo = @json(session('status') === 'profile-updated');
 		let passUpdate = @json(session('status') === 'password-updated')
+
+		// Image preview
+		function imgPreview() {
+			const img = document.querySelector('#profile_picture');
+			const img_preview = document.querySelector('.img-preview');
+			
+			img_preview.style.display = 'block';
+			
+			const oFReader = new FileReader();
+			oFReader.readAsDataURL(img.files[0]);
+			
+			oFReader.onload = function(ofREvent) {
+				img_preview.src = ofREvent.target.result;
+			};
+		}
 		
 		// If account info successfuly updated, display session message for 5 seconds
 		if (accountInfo) {
