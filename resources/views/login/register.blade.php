@@ -69,7 +69,7 @@
 							<x-forms.remove-new-input-form onclick="RemoveButtons('socialLinksRemoveBtn', 'socialLinks', '.socials')" id="socialLinksRemoveBtn">Remove social links</x-forms.remove-new-input-form>
 						</div>
 						<div>
-							<x-forms.input-form id="bio" name="bio" type="text" placehold="Introduce yoyrself" value="bio" error="bio" required>Biodata</x-forms.input-form>
+							<x-forms.input-form id="bio" name="bio" type="text" placehold="Introduce yourself" value="bio" error="bio" required>Biodata</x-forms.input-form>
 						</div>
 						<div id="educations">
 							<div class="educations">

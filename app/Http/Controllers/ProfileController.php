@@ -7,17 +7,19 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * Display the user's profile form. profile.edit dashboard.edit
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('dashboard.edit', [
             'user' => $request->user(),
+            'title' => 'Edit Profile'
         ]);
     }
 
@@ -47,6 +49,10 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        if ($user->profile_picture) {
+            Storage::disk('public')->delete($user->profile_picture);
+        }
 
         Auth::logout();
 
