@@ -66,7 +66,7 @@
 								</div>
 							</div>
 							<x-forms.new-input-form onclick="socialLinkPlatform()" id="socialLinksBtn">Add new social platforms</x-forms.new-input-form>
-							<x-forms.remove-new-input-form onclick="RemoveButtons('socialLinksRemoveBtn', 'socialLinks', '.socials')" id="socialLinksRemoveBtn">Remove social links</x-forms.remove-new-input-form>
+							<x-forms.remove-new-input-form onclick="RemoveButtons('socialLinksRemoveBtn', 'socialLinks', '.socials')" id="socialLinksRemoveBtn" style="display:none;">Remove social links</x-forms.remove-new-input-form>
 						</div>
 						<div>
 							<x-forms.input-form id="bio" name="bio" type="text" placehold="Introduce yourself" value="bio" error="bio" required>Biodata</x-forms.input-form>
@@ -90,7 +90,7 @@
 								</div>
 							</div>
 							<x-forms.new-input-form onclick="educationsData()" id="educationsDataBtn">Add new education data</x-forms.new-input-form>
-							<x-forms.remove-new-input-form onclick="RemoveButtons('educationsRemoveDataBtn', 'educations', '.educations')" id="educationsRemoveDataBtn">Remove educations data</x-forms.remove-new-input-form>
+							<x-forms.remove-new-input-form onclick="RemoveButtons('educationsRemoveDataBtn', 'educations', '.educations')" id="educationsRemoveDataBtn" style="display:none;">Remove educations data</x-forms.remove-new-input-form>
 						</div>
 						<div id="works">
 							<div class="works">
@@ -110,7 +110,7 @@
 									<x-forms.input-form id="work_0_descriptions" name="work_experiences[0][description]" type="text" placehold="computer technician training........" value="work_experiences.0.description" error="work_experiences.0.description" required>Work description</x-forms.input-form>
 								</div>
 								<x-forms.new-input-form onclick="worksData()" id="worksDataBtn">Add new work experience</x-forms.new-input-form>
-								<x-forms.remove-new-input-form onclick="RemoveButtons('workRemoveDataBtn', 'works', '.works')" id="workRemoveDataBtn">Remove work experience</x-forms.remove-new-input-form>
+								<x-forms.remove-new-input-form onclick="RemoveButtons('workRemoveDataBtn', 'works', '.works')" id="workRemoveDataBtn" style="display:none;">Remove work experience</x-forms.remove-new-input-form>
 							</div>
 						</div>
 					</div>
