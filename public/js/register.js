@@ -32,10 +32,6 @@ document.querySelector('form').addEventListener('submit', buttonDisable);
  * @param {string} className - Get all of 'className' class inside parent container
  */
 function toggleButtonsState(buttons, containerId, className) {
-	const disabledClass = "text-fg-disabled bg-disabled box-border border border-default-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none";
-
-	const activeClass = "focus:outline-none text-dark dark:text-gray-600 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 text-center mt-3 inline-flex items-center gap-2 dark:focus:ring-yellow-900";
-
 	const targetBtn = document.getElementById(buttons);
 	const targetId = document.getElementById(containerId);
 
@@ -47,12 +43,10 @@ function toggleButtonsState(buttons, containerId, className) {
 	if(targetClass.length === 1) {
 		targetBtn.style.display = 'none';
 		targetBtn.classList.add("cursor-not-allowed");
-		targetBtn.className = disabledClass;
 		targetBtn.disabled = true;
 	} else if (targetBtn.length !== 1) {
 		targetBtn.style.display = 'inline';
 		targetBtn.classList.remove("cursor-not-allowed");
-		targetBtn.className = activeClass;
 		targetBtn.disabled = false;
 	}
 	
