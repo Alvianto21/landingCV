@@ -34,7 +34,6 @@
 
 	@push('scripts')
 		<!-- Addisional js -->
-		{{-- <script src="{{ asset("js/resenNotif.js") }}" defer></script> --}}
 		<script>
 			// disable submit button on click
 			function buttonDisable() {
