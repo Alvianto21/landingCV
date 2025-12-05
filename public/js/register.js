@@ -115,7 +115,7 @@ function educationsData() {
 	container.appendChild(new_div);
 
 	// Enable remove button
-	toggleButtonsState("educattionsRemoveDataBtn", "educations", ".educations");
+	toggleButtonsState("educationsRemoveDataBtn", "educations", ".educations");
 }
 
 // Add new work experiences input

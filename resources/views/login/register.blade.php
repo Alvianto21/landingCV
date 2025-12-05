@@ -90,7 +90,7 @@
 								</div>
 							</div>
 							<x-forms.new-input-form onclick="educationsData()" id="educationsDataBtn">Add new education data</x-forms.new-input-form>
-							<x-forms.remove-new-input-form onclick="RemoveButtons('educattionsRemoveDataBtn', 'educations', '.educations')" id="educattionsRemoveDataBtn">Remove educations data</x-forms.remove-new-input-form>
+							<x-forms.remove-new-input-form onclick="RemoveButtons('educationsRemoveDataBtn', 'educations', '.educations')" id="educattionsRemoveDataBtn">Remove educations data</x-forms.remove-new-input-form>
 						</div>
 						<div id="works">
 							<div class="works">
