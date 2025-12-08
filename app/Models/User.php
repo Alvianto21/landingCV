@@ -29,7 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         'work_experiences',
         'educations',
         'skills',
-        'sosial_links',
+        'social_links',
         'gender',
         'place_of_birth',
         'date_of_birth',
@@ -56,9 +56,9 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'sosial_links' => 'array',
-            'work_experiences' => 'array',
-            'educations' => 'array'
+            // 'sosial_links' => 'array',
+            // 'work_experiences' => 'array',
+            // 'educations' => 'array'
         ];
     }
 }

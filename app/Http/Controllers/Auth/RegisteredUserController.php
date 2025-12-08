@@ -71,7 +71,7 @@ class RegisteredUserController extends Controller
             'place_of_birth' => $request->place_of_birth,
             'date_of_birth' => $request->date_of_birth,
             'skills' => $request->skills,
-            'sosial_links' => json_encode($request->social_links),
+            'social_links' => json_encode($request->social_links),
             'bio' => $request->bio,
             'educations' => json_encode($request->educations),
             'work_experiences' => json_encode($request->work_experiences)

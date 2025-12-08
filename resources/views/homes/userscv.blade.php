@@ -54,7 +54,7 @@
     <section class="bg-gray-50 dark:bg-gray-800 border justify-items-center text-center border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12" id="socials">
         <h2 class="text-gray-900 dark:text-white text-3xl font-extrabold mb-2">Social Links</h2>
         <div class="w-48 text-sm flex justify-center-safe font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-            @foreach (json_decode($user->sosial_links, true) as $link)
+            @foreach (json_decode($user->social_links, true) as $link)
                 @if ($link['platform'] == 'x')
                     <a href="{{ $link['link'] }}" class="block w-full px-4 py-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
                         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">

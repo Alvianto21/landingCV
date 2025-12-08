@@ -9,6 +9,7 @@
 
 			<div class="my-3">
 				<x-alerts.verify></x-alerts.verify>
+				<x-alerts.appearance></x-alerts.appearance>
 			</div>
 
 			<div class="bg-neutral-primary-soft block max-w-screen-md items-center p-6 border border-default rounded-base shadow-xs">
@@ -47,7 +48,7 @@
 					@endforeach
 				</div>
 				<ul class="flex space-x-4 sm:mt-0 mb-4">
-					@foreach (json_decode($user->sosial_links, true) as $link)
+					@foreach (json_decode($user->social_links, true) as $link)
 						@if ($link['platform'] == 'x')
 							<li>
 								<a href="{{ $link['link'] }}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -70,9 +71,9 @@
 					@endforeach
                 </ul>
 				<a href="{{ route('profile.edit') }}" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-					Edit profile
+					Edit account
 				</a>
-				<a href="{{ route('profile.edit') }}" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+				<a href="{{ route('appearance.edit', ['user' => $user->username]) }}" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
 					Edit profile
 				</a>
 			</div>

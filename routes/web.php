@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppearanceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -18,6 +19,10 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        Route::get('/appearance/{user:username}', [AppearanceController::class, 'edit'])->name('appearance.edit')->middleware('verified');
+
+        Route::put('/appearance/{user:username?}', [AppearanceController::class, 'update'])->name('appearance.update')->middleware('verified');
     });
 });
 

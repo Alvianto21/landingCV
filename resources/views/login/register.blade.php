@@ -47,7 +47,7 @@
 							<x-forms.input-form id="phone_number" name="phone_number" type="tel" placehold="123456789012" value="phone_number" error="phone_number" required>Phone Number</x-forms.input-form>
 						</div>
 						<div>
-							<x-forms.input-form id="place_of_birth" name="place_of_birth" type="text" placehold="Surabaya" value="place_of_birth" error="plce_of_birth" required>Place of birth</x-forms.input-form>
+							<x-forms.input-form id="place_of_birth" name="place_of_birth" type="text" placehold="Surabaya" value="place_of_birth" error="place_of_birth" required>Place of birth</x-forms.input-form>
 						</div>
 						<div>
 							<x-forms.input-form id="date_of_birth" name="date_of_birth" type="date" placehold="" value="date_of_birth" error="date_of_birth" required>Date of birth</x-forms.input-form>
@@ -71,6 +71,7 @@
 						<div>
 							<label for="bio" block mb-2.5 text-sm font-medium text-heading>Biodata</label>
 							<textarea name="bio" id="bio" cols="3" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body" placeholder="Introduce yourself" required>{{ old('bio') }}</textarea>
+							<x-input-error :messages="$errors->get('bio')" class="mt-2" />
 						</div>
 						<div id="educations">
 							<div class="educations">

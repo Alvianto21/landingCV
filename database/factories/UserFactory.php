@@ -67,7 +67,7 @@ class UserFactory extends Factory
                 ]
             ]),
             'skills' => implode(', ', fake()->words(5)),
-            'sosial_links' => json_encode([
+            'social_links' => json_encode([
                 0 => [
                     'platform' => 'linkedin',
                     'link' => fake()->url()

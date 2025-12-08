@@ -24,7 +24,7 @@ return new class extends Migration
             $table->json('work_experiences');
             $table->json('educations');
             $table->text('skills');
-            $table->json('sosial_links')->nullable();
+            $table->json('social_links')->nullable();
             $table->enum('gender', ['male', 'female']);
             $table->string('place_of_birth');
             $table->date('date_of_birth');
