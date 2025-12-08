@@ -35,7 +35,7 @@ function socialLinkPlatform() {
 	const container = document.getElementById('socialLinks');
 	const new_div = document.createElement('div');
 	let social_links_index = document.querySelectorAll('.socials').length;
-	new_div.classList.add("sosials");
+	new_div.classList.add("socials");
 		
 	// add new input inside div
 	new_div.innerHTML = `
@@ -159,3 +159,15 @@ function RemoveButtons(btn, containerId, className) {
 
 	toggleButtonsState(btn, containerId, className);
 }
+
+// disable submit button on click
+function buttonDisable() {
+	const btn_origin = document.getElementById('submit');
+	const btn_target = document.getElementById('loader');
+	
+	btn_origin.style.display = 'none';
+	btn_origin.disabled = true;
+	btn_target.style.display = 'block';
+}
+
+document.querySelector('form').addEventListener('submit', buttonDisable);
