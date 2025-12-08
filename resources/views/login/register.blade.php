@@ -69,7 +69,8 @@
 							<x-forms.remove-new-input-form onclick="RemoveButtons('socialLinksRemoveBtn', 'socialLinks', '.socials')" id="socialLinksRemoveBtn" style="display:none;">Remove social links</x-forms.remove-new-input-form>
 						</div>
 						<div>
-							<x-forms.input-form id="bio" name="bio" type="text" placehold="Introduce yourself" value="bio" error="bio" required>Biodata</x-forms.input-form>
+							<label for="bio" block mb-2.5 text-sm font-medium text-heading>Biodata</label>
+							<textarea name="bio" id="bio" cols="3" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body" placeholder="Introduce yourself" required>{{ old('bio') }}</textarea>
 						</div>
 						<div id="educations">
 							<div class="educations">
