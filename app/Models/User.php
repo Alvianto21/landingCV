@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\CanResetPassword;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 {
     use HasFactory, Notifiable;
 
@@ -20,6 +21,19 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'profile_picture',
+        'bio',
+        'address',
+        'phone_number',
+        'work_experiences',
+        'educations',
+        'skills',
+        'social_links',
+        'gender',
+        'place_of_birth',
+        'date_of_birth',
+        'role'
     ];
 
     /**
@@ -42,6 +56,9 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            // 'sosial_links' => 'array',
+            // 'work_experiences' => 'array',
+            // 'educations' => 'array'
         ];
     }
 }

@@ -6,7 +6,8 @@ website for curriculum vitae online using laravel 11 application
 ### Main Feature
 - Export PDF
 - Search user CV
-- forgot password
+- Forgot password
+- Dynamic input form with vanila js
 
 ## Required
 - PHP 8.2

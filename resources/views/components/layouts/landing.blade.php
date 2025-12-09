@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Landing CV">
     <meta name="author" content="Vonsensius Alvianto">
-    @auth
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-    @endauth
 
     <!-- Tailwind css -->
     @vite('resources/css/app.css', 'resources/js/app.js')
@@ -17,7 +14,7 @@
 </head>
 <body class="h-full">
     <div class="min-h-full">
-        <x-header>{{ $title }}</x-header>
+        <x-header2>{{ $title }}</x-header2>
     </div>
     
     <!-- Main content -->
@@ -29,7 +26,5 @@
 
     <!-- Flowbite js -->
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
-    @stack('scripts')
 </body>
 </html>

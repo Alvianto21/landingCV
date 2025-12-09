@@ -27,8 +27,63 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'username' => fake()->unique()->userName(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'profile_picture' => fake()->imageUrl(200, 200, 'people'),
+            'bio' => fake()->paragraph(4),
+            'address' => fake()->address(),
+            'phone_number' => fake()->phoneNumber(),
+            'work_experiences' => json_encode([
+                0 => [
+                    'company' => fake()->company(),
+                    'position' => fake()->jobTitle(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ],
+                1 => [
+                    'company' => fake()->company(),
+                    'position' => fake()->jobTitle(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'description' => fake()->paragraph()
+                ]
+            ]),
+            'educations' => json_encode([
+                0 => [
+                    'institution' => fake()->company(),
+                    'degree' => 'Bachelor of ' . fake()->word(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'link' => fake()->url()
+                ],
+                1 => [
+                    'institution' => fake()->company(),
+                    'degree' => 'Master of ' . fake()->word(),
+                    'start_date' => fake()->date(),
+                    'end_date' => fake()->date(),
+                    'link' => fake()->url()
+                ]
+            ]),
+            'skills' => implode(', ', fake()->words(5)),
+            'social_links' => json_encode([
+                0 => [
+                    'platform' => 'linkedin',
+                    'link' => fake()->url()
+                ],
+                1 => [
+                    'platform' => 'github',
+                    'link' => fake()->url()
+                ],
+                2 => [
+                    'platform' => 'x',
+                    'link' => fake()->url()
+                ]
+            ]),
+            'gender' => fake()->randomElement(['male', 'female']),
+            'place_of_birth' => fake()->city(),
+            'date_of_birth' => fake()->date()
         ];
     }
 
