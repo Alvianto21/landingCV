@@ -20,7 +20,7 @@
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Gender: <span class="text-body">{{ $user->gender }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Phone: <span class="text-body">{{ $user->phone_number }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Place of birth: <span class="text-body">{{ $user->place_of_birth }}</span></p>
-				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Date of birth: <span class="text-body">{{ Carbon\Carbon::parse($user->date_of_birth)->format('d-m-Y') }}</span></p>
+				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Date of birth: <span class="text-body">{{ Carbon\Carbon::parse($user->date_of_birth)->format('d M Y') }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Address: <span class="text-body">{{ $user->address }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Bio: <span class="text-body">{{ $user->bio }}</span></p>
 				<p class="mt-6 mb-2 text-2xl font-normal tracking-tight text-heading">Skills: <span class="text-body">{{ $user->skills }}</span></p>
@@ -29,7 +29,7 @@
 					@foreach (json_decode($user->educations, true) as $education)
 					<div class="text-center mb-4">
 						<p class="mt-6 mb-2 text-xl font-normal tracking-tight text-heading">{{ $education['institution'] }}</span></p>
-						<p class="mb-4 text-body">From {{ Carbon\Carbon::parse($education['start_date'])->format('d-m-Y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('d-m-Y') }}</p>
+						<p class="mb-4 text-body">From {{ Carbon\Carbon::parse($education['start_date'])->format('F Y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('F Y') }}</p>
 						@if (!empty($education['link']))
 							<a href="{{ $education['link'] }}" type="button" class="text-body bg-neutral-secondary-medium box-border border border-default-medium rounded-base text-sm px-4 py-2.5 focus:outline-none">
 								Read more
@@ -43,7 +43,7 @@
 							<p class="mt-6 mb-2 text-xl font-medium tracking-tight text-heading">{{ $work['position'] }}</p>
 							<p class="mt-4 mb-2  text-xl font-normal tracking-tight text-heading">{{ $work['company'] }}</p>
 							<p class="mt-4 mb-2  text-base font-normal tracking-tight text-heading">{{ $work['description'] }}</p>
-							<p class="text-body">From {{ Carbon\Carbon::parse($work['start_date'])->format('d-m-Y') }} to {{ Carbon\Carbon::parse($work['end_date'])->format('d-m-Y') }}</p>
+							<p class="text-body">From {{ Carbon\Carbon::parse($work['start_date'])->format('F Y') }} to {{ Carbon\Carbon::parse($work['end_date'])->format('F Y') }}</p>
 						</div>
 					@endforeach
 				</div>
@@ -75,6 +75,9 @@
 				</a>
 				<a href="{{ route('appearance.edit', ['user' => $user->username]) }}" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
 					Edit profile
+				</a>
+				<a href="{{ route('exports.pdf', ['user' => $user->username]) }}" class="inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+					Export PDF
 				</a>
 			</div>
 		</div>

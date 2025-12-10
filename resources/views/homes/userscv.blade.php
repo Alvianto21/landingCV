@@ -6,7 +6,7 @@
 		<div class="py-8 px-4 mx-auto max-w-screen-xl text-center justify-items-center lg:py-16">
 			<img src="{{ asset('storage/' . $user->profile_picture) }}" alt="{{ $user->username }}" width="300" class="rounded-circle">
 			<h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-5xl dark:text-white">{{ $user->name }}</h1>
-			<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">{{ $user->place_of_birth }}, {{ Carbon\Carbon::parse($user->date_of_birth)->format('d-m-Y') }}</p>
+			<p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">{{ $user->place_of_birth }}, {{ Carbon\Carbon::parse($user->date_of_birth)->format('d M Y') }}</p>
 		</div>
 	</section>
 
@@ -28,7 +28,7 @@
             <h3 class="text-gray-900 dark:text-white text-3xl font-medium mb-3">{{ $work['position'] }}</h3>
             <p class="text-lg font-medium text-gray-500 dark:text-gray-400 mb-4">{{ $work['company'] }}</p>
             <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">{{ $work['description'] }}</p>                
-            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">{{ Carbon\Carbon::parse($work['start_date'])->format('d-m-Y') }} to {{ Carbon\Carbon::parse($work['end_date'])->format('d-m-Y') }}</p>                
+            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-4">{{ Carbon\Carbon::parse($work['start_date'])->format('F Y') }} to {{ Carbon\Carbon::parse($work['end_date'])->format('F Y') }}</p>                
         @endforeach
     </section>
 
@@ -39,7 +39,7 @@
             <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 dark:text-white">Educations</h2>
             @foreach (json_decode($user->educations, true) as $education)
                 <p class="mb-4 font-medium">{{ $education['institution'] }}</p>
-                <p class="mb-4 font-light">{{ Carbon\Carbon::parse($education['start_date'])->format('d-m-y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('d-m-Y') }}</p>
+                <p class="mb-4 font-light">{{ Carbon\Carbon::parse($education['start_date'])->format('F Y') }} to {{ Carbon\Carbon::parse($education['end_date'])->format('F Y') }}</p>
                 @if (!empty($education['link']))
                     <a href="{{ $education['link'] }}" class="inline-flex items-center font-medium text-primary-600 hover:text-primary-800 dark:text-primary-500 dark:hover:text-primary-700 mb-4">
                         Learn more

@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AppearanceController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AppearanceController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -23,6 +24,8 @@ Route::prefix('dashboard')->group(function () {
         Route::get('/appearance/{user:username}', [AppearanceController::class, 'edit'])->name('appearance.edit')->middleware('verified');
 
         Route::put('/appearance/{user:username?}', [AppearanceController::class, 'update'])->name('appearance.update')->middleware('verified');
+
+        Route::get('/exports/pdf/{user:username}', [ExportController::class, 'exportPdf'])->name('exports.pdf')->middleware(['verified', 'throttle:6,1']);
     });
 });
 
