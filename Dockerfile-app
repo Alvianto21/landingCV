@@ -1,0 +1,66 @@
+FROM php:8.3.26-fpm AS base_app
+
+RUN apt-get update && apt-get install -y \
+	zip unzip git curl libzip-dev libfreetype-dev libjpeg62-turbo-dev libpng-dev libonig-dev nodejs npm 
+
+RUN docker-php-ext-configure zip \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable gd \
+	&& docker-php-ext-install bcmath \
+    && docker-php-ext-enable bcmath \
+    && docker-php-ext-install exif \
+    && docker-php-ext-enable exif \
+    && docker-php-ext-install gettext \
+    && docker-php-ext-enable gettext \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-enable opcache
+
+RUN rm -rf /var/cache/apk/* && apt-get clean
+
+COPY --from=composer:2.8.11 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+
+COPY . .
+
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache
+
+RUN composer install --prefer-source --no-dev
+RUN npm install && npm run build
+
+RUN php artisan storage:link
+
+RUN chown -R www-data:www-data /var/www/html/vendor \
+    && chmod -R 775 /var/www/html/vendor
+
+FROM php:8.3.26-fpm
+
+RUN apt-get update && apt-get install -y \
+	zip unzip git curl libzip-dev libfreetype-dev libjpeg62-turbo-dev libpng-dev libonig-dev nodejs npm 
+
+RUN docker-php-ext-configure zip \
+    && docker-php-ext-install zip pdo pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd \
+    && docker-php-ext-enable gd \
+	&& docker-php-ext-install bcmath \
+    && docker-php-ext-enable bcmath \
+    && docker-php-ext-install exif \
+    && docker-php-ext-enable exif \
+    && docker-php-ext-install gettext \
+    && docker-php-ext-enable gettext \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-enable opcache
+
+RUN rm -rf /var/cache/apk/* && apt-get clean
+
+COPY --from=base_app /var/www/html /var/www/html
+COPY ./docker/php/php.ini $PHP_INI_DIR/conf.d/
+
+WORKDIR /var/www/html
+
+EXPOSE 9000

@@ -8,7 +8,7 @@
     <meta name="author" content="Vonsensius Alvianto">
 
     <!-- Tailwind css -->
-    @vite('resources/css/app.css', 'resources/js/app.js')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>{{ $title }} | LandingCV</title>
 </head>
@@ -23,8 +23,5 @@
             {{ $slot }}
         </div>
     </main>
-
-    <!-- Flowbite js -->
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 </html>
